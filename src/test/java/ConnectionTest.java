@@ -16,7 +16,7 @@ public class ConnectionTest {
             if (connection.isClosed()) {
                 System.out.println("Connection closed");
             }
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Connection ERROR.");
         }
     }
