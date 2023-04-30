@@ -16,6 +16,7 @@ public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
 
     public void saveUser(String name, String lastName, byte age) {
         super.saveUser(name, lastName, age);
+        System.out.println("User с именем – " + name + " добавлен в базу данных");
     }
 
     public void removeUserById(long id) {
@@ -23,7 +24,11 @@ public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
     }
 
     public List<User> getAllUsers() {
-        return super.getAllUsers();
+        List<User> users =  super.getAllUsers();
+        for (User user : users) {
+            System.out.println(user);
+        }
+        return users;
     }
 
     public void cleanUsersTable() {
