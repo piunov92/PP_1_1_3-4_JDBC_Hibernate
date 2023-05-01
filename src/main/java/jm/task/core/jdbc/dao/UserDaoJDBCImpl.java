@@ -83,14 +83,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
 
     public void cleanUsersTable() {
         try (Statement preparedStatement = getConnection().createStatement()) {
-            ResultSet r = preparedStatement.executeQuery("SELECT * FROM USERS");
-            if (!r.next()) {
-                System.out.println("В таблице \"USERS\" нет записей.");
-            } else {
-                preparedStatement.execute("TRUNCATE TABLE USERS");
-            }
-        } catch (SQLSyntaxErrorException e) {
-            System.out.println("В базе данных нет таблицы с именем \"USERS\".");
+            preparedStatement.execute("TRUNCATE TABLE USERS");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Connection ERROR.");
         }
